@@ -1,6 +1,6 @@
 # BCJR Decoder
 
-A **Max-Log-MAP** (Bahl?Cocke?Jelinek?Raviv) soft-input/soft-output decoder for the **CCSDS 131.0-B-5** standard *K = 7, rate-1/2* inner convolutional code. The decoder runs forward/backward recursions over the 64-state trellis and emits both **hard decisions** and **a-posteriori (APP) log-likelihood ratios** per information bit.
+A **Max-Log-MAP** (Bahl-Cocke-Jelinek-Raviv) soft-input/soft-output decoder for the **CCSDS 131.0-B-5** standard *K = 7, rate-1/2* inner convolutional code. The decoder runs forward/backward recursions over the 64-state trellis and emits both **hard decisions** and **a-posteriori (APP) log-likelihood ratios** per information bit.
 
 ---
 
