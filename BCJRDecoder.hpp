@@ -347,14 +347,14 @@ public:
       const double rad=std::max(0.0,(3.0*M2*M2-M4)*0.5); // (2M2^2 - M4)/2 >= 0 radicand for the SNR estimate
       double S=std::sqrt(rad);              // Signal power estimate S=a^2
       S=std::clamp(S,0.0,M2);               // Keep N = M2 - S in [0,M2]
-      const double N=std::max(M2-S,1e-6);   // Noise power (variance estimate) with a small floor
+      const double Npw=std::max(M2-S,1e-6);   // Noise power (variance estimate) with a small floor
       const double a=std::sqrt(S);          // Amplitude estimate
       // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
       // Channel reliability factor k = 1a/sigma^2 clamped to a sane band so a degenerate
       // block can never feed gamma a pathological scale. k only sets confidence
       // spread (not the hard decision boundary) so we clamp conservatively
       // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
-      const float k=std::clamp(static_cast<float>(2.0*a/N),0.1f,100.0f); // LLR spread factor
+      const float k=std::clamp(static_cast<float>(2.0*a/Npw),0.1f,100.0f); // LLR spread factor
       // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
       // Build per-info-step coded LLRs, mirroring the weighted Viterbi intake
       // where:
