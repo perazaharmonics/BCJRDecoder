@@ -45,30 +45,29 @@ $$
 
 ## 2. Trellis Model
 
-At information step $t$ the shift register is in state $s_t \in \{0,\dots,63\}$. An input bit $b \in \{0,1\}$ drives the transition
+At information step $t$ the shift register is in state $s_t \in \{0, \dots, 63\}$. An input bit $b \in \{0, 1\}$ drives the transition
 
 $$
-z'_t = \big((s_t \ll 1)\;|\;b\big) \,\&\, \mathtt{0x7F},
+z'_t = \big( (s_t \ll 1) \mathbin{|} b \big) \mathbin{\&} \mathtt{0x7F},
 \qquad
-s_{t+1} = z'_t \,\&\, \mathtt{0x3F},
+s_{t+1} = z'_t \mathbin{\&} \mathtt{0x3F},
 $$
 
 and produces the two expected coded bits via parity over the generator masks:
 
 $$
-c_1 = \mathcal{P}\!\left(z'_t \,\&\, g_1\right),
+c_1 = \mathcal{P}\big( z'_t \mathbin{\&} g_1 \big),
 \qquad
-c_2 = \mathcal{P}\!\left(z'_t \,\&\, g_2\right),
+c_2 = \mathcal{P}\big( z'_t \mathbin{\&} g_2 \big),
 $$
 
 where $\mathcal{P}(\cdot)$ is the **even-parity** (XOR-fold) operator
 
 $$
-\mathcal{P}(w) \;=\; \bigoplus_{i} w_i \;=\; \left(\sum_i w_i\right) \bmod 2 .
+\mathcal{P}(w) \;=\; \bigoplus_{i} w_i \;=\; \left( \sum_i w_i \right) \bmod 2 .
 $$
 
 Each transition $(s_t, b) \to (s_{t+1}, \mathbf{c})$ is stored once at trellis-build time.
-
 ---
 
 ## 3. Branch Metric (Gamma)
