@@ -48,17 +48,17 @@ $$
 At information step $t$ the shift register is in state $s_t \in \{0, \dots, 63\}$. An input bit $b \in \{0, 1\}$ drives the transition
 
 $$
-z'_t = \big( (s_t \ll 1) \mathbin{|} b \big) \mathbin{\&} \mathtt{0x7F},
+z'_t = \big( (s_t \ll 1) \vee b \big) \wedge \mathtt{0x7F},
 \qquad
-s_{t+1} = z'_t \mathbin{\&} \mathtt{0x3F},
+s_{t+1} = z'_t \wedge \mathtt{0x3F},
 $$
 
 and produces the two expected coded bits via parity over the generator masks:
 
 $$
-c_1 = \mathcal{P}\big( z'_t \mathbin{\&} g_1 \big),
+c_1 = \mathcal{P}\big( z'_t \wedge g_1 \big),
 \qquad
-c_2 = \mathcal{P}\big( z'_t \mathbin{\&} g_2 \big),
+c_2 = \mathcal{P}\big( z'_t \wedge g_2 \big),
 $$
 
 where $\mathcal{P}(\cdot)$ is the **even-parity** (XOR-fold) operator
