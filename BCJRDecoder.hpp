@@ -387,13 +387,13 @@ public:
           }                                 // Done phase 0
           else if (ph==1)                   // Phase 1?
           {                                 // Yes, C2 present and C1 erased
-            if (idx+1u>=N)                  // Enough symbols for another step?
+            if (idx>=N)                     // Enough symbols for another step?
               break;                        // No, done building LLRs
             l2=-k*src[idx++];               // LLR for C2 (no flip)
           }                                 // Done phase 1
           else                              // Phase 2?
           {                                 // Yes, C1 present and C2 erased
-            if (idx+1u>=N)                  // Enough symbols for another step?
+            if (idx>=N)                     // Enough symbols for another step?
               break;                        // No, done building LLRs
             l1=-k*src[idx++];               // LLR for C1 (un-inverted)
           }                                 // Done phase 2
