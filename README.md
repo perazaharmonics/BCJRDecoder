@@ -34,9 +34,9 @@ $$
 Coded bits are mapped to BPSK-style antipodal symbols:
 
 $$
-x \;=\; (-1)^{c} \;=\;
+x = (-1)^{c} =
 \begin{cases}
-+1, & c = 0, \\[2pt]
++1, & c = 0,\\
 -1, & c = 1.
 \end{cases}
 $$
