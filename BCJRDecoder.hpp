@@ -157,7 +157,7 @@ public:
         }                           // Done for each input bit
         }                             // Done for each state
     }                               // ~~~~~~~~~~ Print ~~~~~~~~~~ //        
-    } trellis{};      
+    };      
 
 public:
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
