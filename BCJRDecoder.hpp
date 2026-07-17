@@ -132,7 +132,7 @@ public:
             out[s][b][0]=static_cast<uint8_t>(Parity(static_cast<uint32_t>(zprm)&g1));// Expected C1 (G1)
             // ~~~~~~~~~~~~~~~~~~~~~~ //
             // CCSDS 131.0-B-5 sec 3.3.1(5): G2 output inversion. Mirrors the encoder
-            // so the trellis expects the inverted C2 for rate 1/2 AND 3/4
+            // so the trellis expects the inverted C2 for rate 1/2
             // (the puncture metric reads this same table entry)
             // ~~~~~~~~~~~~~~~~~~~~~~ //
             out[s][b][1]=static_cast<uint8_t>(Parity(static_cast<uint32_t>(zprm)&g2));// RAW
